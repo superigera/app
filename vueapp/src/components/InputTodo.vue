@@ -1,9 +1,14 @@
 <template>
   <div>
-    <input type="text" placeholder="入力してください" v-model="todo">
-    <button @click="addTodo">
-      追加
-    </button>
+    <v-row>
+      <v-col cols="4">
+        <v-text-field clearable label="入力してください" variant="outlined" v-model="todo"></v-text-field>
+      </v-col>
+      <v-btn @click="addTodo" rounded="lg" color="primary" >
+        追加
+      </v-btn>
+    </v-row>
+  
   </div>
 </template>
 
@@ -34,6 +39,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 
 </style>

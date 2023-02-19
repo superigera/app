@@ -1,8 +1,12 @@
 <template>
   <div>
+
+    <br>
     <InputTodo @add="addIncomTodo"></InputTodo>
     <IncompleteTodo :incompleteTodos=incomTodos @delete="deleteIncomTodo" @add="addCompleteTodo"></IncompleteTodo>
     <CompleteTodo :completeTodos=comTodos @delete="deletecomTodo" @back="addIncomTodo"></CompleteTodo>  
+
+
   </div>
 </template>
 

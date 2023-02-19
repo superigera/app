@@ -1,5 +1,6 @@
 <template>
     <div>
+        <h3>完了リスト</h3>
         <ul>
           <li v-for="(todo, index) in completeTodos" :key="todo">
             {{ todo }}
