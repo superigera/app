@@ -1,26 +1,61 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <InputTodo @add="addIncomTodo"></InputTodo>
+    <IncompleteTodo :incompleteTodos=incomTodos @delete="deleteIncomTodo" @add="addCompleteTodo"></IncompleteTodo>
+    <CompleteTodo :completeTodos=comTodos @delete="deletecomTodo" @back="addIncomTodo"></CompleteTodo>
+
+    
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import InputTodo from './components/InputTodo.vue'
+import IncompleteTodo from './components/IncompleteTodo.vue'
+import CompleteTodo from './components/CompleteTodo.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    InputTodo,
+    IncompleteTodo,
+    CompleteTodo
+  },
+
+  methods: {
+    addIncomTodo(value){
+
+      //IncompleteTodoに追加する
+      this.incomTodos.push(value)
+    },
+
+    deleteIncomTodo(value){
+
+      //IncompleteTodoから削除する
+      this.incomTodos.splice(value, 1)
+    },
+
+    addCompleteTodo(value){
+
+      //completeTodoに追加する
+      this.comTodos.push(value)
+    },
+
+    deletecomTodo(value){
+
+      //completeTodoから削除する
+      this.comTodos.splice(value, 1)
+    }
+
+  },
+
+  data: () => ({
+    incomTodos: [],
+    comTodos: []
+  }),
+
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
