@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
     <div>
         <h3>完了リスト</h3>
         <ul>
@@ -37,4 +37,4 @@ export default {
 
 <style scope>
 
-</style>
+</style> -->
