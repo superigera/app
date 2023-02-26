@@ -1,29 +1,31 @@
 <template>
     <h3>未完了リスト</h3>
-    <ul>
-        <li v-for="todo in manageTodos" :key="todo">
-        <p v-if="todo.done == false">
-            {{ todo.text }}
-            <button @click = "completeTodo(todo)">完了</button>
-            <button @click = "deleteTodo(todo)">削除</button>
-        </p>
-        </li>
-    </ul>
-
-    <ul>
-        <h3>完了リスト</h3>
-        <li v-for="todo in manageTodos" :key="todo">
-        <p v-if="todo.done == true">
-            {{ todo.text }}
-            <button @click = "backTodo(todo)">戻す</button>
-            <button @click = "deleteTodo(todo)">削除</button>
-        </p>
-        </li>
-    </ul>
+    <v-sheet rounded :height="200" :width="auto" color="info">
+        <ul>
+            <li v-for="todo in manageTodos" :key="todo.id">
+                <p v-if="todo.done == false">
+                    {{ "・" + todo.text }}
+                    <v-btn @click = "completeTodo(todo)" rounded="lg" color="#3F51B5" style="color: #FFFFFF;">完了</v-btn>
+                    <v-btn @click = "deleteTodo(todo)" rounded="lg" color="#3F51B5" style="color: #FFFFFF;">削除</v-btn>
+                </p>
+            </li>
+        </ul>
+    </v-sheet>
+    <h3>完了リスト</h3>
+    <v-sheet rounded :height="200" :width="auto" color="info">
+        <ul>
+            <li v-for="todo in manageTodos" :key="todo.id">
+                <p v-if="todo.done == true">
+                    {{ "・" + todo.text }}
+                    <v-btn @click = "backTodo(todo)" rounded="lg" color="#3F51B5" style="color: #FFFFFF;">戻す</v-btn>
+                    <v-btn @click = "deleteTodo(todo)" rounded="lg" color="#3F51B5" style="color: #FFFFFF;">削除</v-btn>
+                </p>
+            </li>
+        </ul>
+    </v-sheet>
 </template>
 
 <script setup>
-import { ref } from 'vue';
 const emit = defineEmits(['delete'])
 
 const props = defineProps({
@@ -42,7 +44,7 @@ function backTodo(todo){
 
 //削除ボタン
 function deleteTodo(todo){
-    emit('delete', todo.id)
+    emit('delete', todo)
 }
 
 </script>

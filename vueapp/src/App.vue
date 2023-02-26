@@ -1,6 +1,16 @@
 <template>
+      <v-toolbar
+      dark
+      prominent
+      image="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"
+    >
+      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+
+      <v-toolbar-title>Todo</v-toolbar-title>
+    </v-toolbar>
   <InputTodo @add="addTodo" />
   <managementTodo @delete = "deleteTodo" :manageTodos=todos />
+
 </template>
 
 <script setup>
@@ -16,7 +26,7 @@ function addTodo(todo){
 }
 
 function deleteTodo(todo){
-  todos.value.splice(todo, 1)
+  todos.value.splice(todo.id, 1)
 }
 </script>
 

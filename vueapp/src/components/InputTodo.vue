@@ -1,9 +1,9 @@
 <template>
-  <v-row>
+  <v-row class="pa-4">
     <v-col cols="4">
       <v-text-field clearable label="入力してください" variant="outlined" v-model="todo"></v-text-field>
     </v-col>
-    <v-btn @click="addTodo" rounded="lg" color="primary" >
+    <v-btn @click="addTodo" rounded="lg" color="#3F51B5" style="color: #FFFFFF;">
       追加
     </v-btn>
   </v-row>
@@ -11,7 +11,7 @@
 
 <script setup>
 import { ref } from 'vue';
-const todo = ref()
+const todo = ref("")
 const emit = defineEmits(['add'])
 
 function addTodo(){
